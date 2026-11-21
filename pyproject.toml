@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vgit"
+version = "0.3.0"
+description = "Git tiếng Việt cho người mới học và trẻ em — vừa làm vừa học lệnh Git gốc"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Dyn" }
+]
+dependencies = []
+
+[project.scripts]
+vgit = "vgit.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["vgit*"]
