@@ -13,6 +13,13 @@ authors = [
     { name = "Dyn" }
 ]
 dependencies = []
+keywords = ["git", "vietnamese", "git-tieng-viet", "vgit", "cli", "education", "beginner"]
+
+[project.urls]
+Homepage = "https://github.com/cmduyeen/git-tieng-viet"
+Repository = "https://github.com/cmduyeen/git-tieng-viet"
+Issues = "https://github.com/cmduyeen/git-tieng-viet/issues"
+Funding = "https://ko-fi.com/cmduyeen"
 
 [project.scripts]
 vgit = "vgit.cli:main"
