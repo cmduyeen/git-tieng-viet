@@ -43,7 +43,7 @@ vgit --version
 ## 🚀 Thực hành quy trình 1 phút
 
 ```powershell
-# 1. Tạo dự án mới
+# 1. Tạo dự án mới (hoặc dùng vwt: taothumuc "du-an-cua-toi"; vao "du-an-cua-toi")
 mkdir du-an-cua-toi
 cd du-an-cua-toi
 vgit batdau
@@ -52,10 +52,12 @@ vgit batdau
 vgit trangthai
 vgit luu "Tạo trang chủ đầu tiên"
 
-# 3. Kết nối GitHub và đẩy code lên
+# 3. Kết nối GitHub và đẩy code lên (hoặc tạo repo nhanh bằng vgh: vgh taorepo du-an-cua-toi)
 vgit ketnoi https://github.com/ten-cua-ban/du-an-cua-toi.git
 vgit day
 ```
+
+> 💡 **Mẹo dùng 100% tiếng Việt từ đầu đến cuối:** Kết hợp [`vwt` (terminal-tieng-viet)](https://github.com/cmduyeen/terminal-tieng-viet) để tạo/vào thư mục (`taothumuc`, `vao`) và [`vgh` (github-tieng-viet)](https://github.com/cmduyeen/github-tieng-viet) để tạo repo GitHub ngay trên terminal (`vgh taorepo`).
 
 ---
 
