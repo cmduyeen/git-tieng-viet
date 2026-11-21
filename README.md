@@ -30,13 +30,13 @@ Sau khi cài đặt, gõ `vgit huongdan` để xem danh sách lệnh.
 Trong PowerShell:
 
 ```powershell
-irm https://raw.githubusercontent.com/cmduyeen/vgit/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/cmduyeen/git-tieng-viet/main/install.ps1 | iex
 ```
 
 ### macOS / Linux
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/cmduyeen/vgit/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/cmduyeen/git-tieng-viet/main/install.sh | sh
 ```
 
 ## Bắt đầu một dự án mới
@@ -146,10 +146,10 @@ python -m unittest discover -s tests -v
 
 | Công cụ | Mô tả | Link |
 | :--- | :--- | :--- |
-| **vpy** | Python tiếng Việt (`.vpy`) & trình soạn thảo `vide` | [cmduyeen/vpy](https://github.com/cmduyeen/vpy) |
-| **vgit** *(đang xem)* | Git tiếng Việt cho người mới học | [cmduyeen/vgit](https://github.com/cmduyeen/vgit) |
-| **vgh** | GitHub CLI (`gh`) tiếng Việt | [cmduyeen/vgh](https://github.com/cmduyeen/vgh) |
-| **vwt** | Windows Terminal / PowerShell tiếng Việt | [cmduyeen/vwt](https://github.com/cmduyeen/vwt) |
+| **vpy** | Python tiếng Việt (`.vpy`) & trình soạn thảo `vide` | [cmduyeen/python-tieng-viet](https://github.com/cmduyeen/python-tieng-viet) |
+| **vgit** *(đang xem)* | Git tiếng Việt cho người mới học | [cmduyeen/git-tieng-viet](https://github.com/cmduyeen/git-tieng-viet) |
+| **vgh** | GitHub CLI (`gh`) tiếng Việt | [cmduyeen/github-tieng-viet](https://github.com/cmduyeen/github-tieng-viet) |
+| **vwt** | Windows Terminal / PowerShell tiếng Việt | [cmduyeen/terminal-tieng-viet](https://github.com/cmduyeen/terminal-tieng-viet) |
 
 ---
 
