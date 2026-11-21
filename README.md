@@ -1,156 +1,102 @@
-# vgit — Git bằng tiếng Việt
+# 🌿 git-tieng-viet (`vgit`) — Dùng Git dễ như tiếng Việt
 
 [Tiếng Việt](README.md) · [English](README.en.md)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Buy%20me%20a%20coffee-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/cmduyeen)
 
-**vgit** là công cụ dòng lệnh giúp người mới sử dụng Git dễ dàng bằng các lệnh ngắn gọn tiếng Việt. Khi cần, vgit sẽ dịch lỗi sang tiếng Việt và hiển thị lệnh Git gốc tương ứng để người dùng học dần.
+**`vgit`** giúp người mới dùng Git dễ dàng bằng các lệnh tiếng Việt ngắn gọn (`vgit batdau`, `vgit luu`, `vgit day`), đồng thời tự động giải thích lỗi và dạy bạn lệnh Git chuẩn ngay trong lúc làm việc.
 
-## Yêu cầu
+## ✨ Điểm nổi bật
 
-- Git
-- Python 3.8 trở lên
-- Windows, macOS hoặc Linux
+- **Không cần nhớ lệnh Git khó:** Thay vì nhớ `git add . && git commit -m "..."`, bạn chỉ cần gõ `vgit luu "nội dung"`.
+- **Chế độ Cầu nối (vừa làm vừa học):** Sau mỗi thao tác, `vgit` hiển thị lệnh `git` gốc tương ứng để bạn làm quen dần với quy trình chuẩn quốc tế.
+- **Dịch lỗi Git sang tiếng Việt:** Khi gặp xung đột code, chưa cấu hình tên/email hay lỗi push, `vgit` dịch nguyên nhân và gợi ý cách xử lý cụ thể bằng tiếng Việt.
+- **An toàn cho người mới:** Các lệnh có nguy cơ mất thay đổi (như `vgit quaylai`) luôn có bước xác nhận rõ ràng trước khi thực hiện.
+- **Nhẹ & đa nền tảng:** Chạy mượt trên Windows, macOS, Linux; không cần cài thêm thư viện ngoài.
 
-## Cài đặt từ mã nguồn
+---
 
-```powershell
-cd D:\Brain2nd\06-Code\vgit
-python -m pip install -e .
-vgit --version
-```
+## ⚡ Cài đặt trong 30 giây
 
-Sau khi cài đặt, gõ `vgit huongdan` để xem danh sách lệnh.
-
-## Cài đặt bằng script
-
-### Windows
-
-Trong PowerShell:
-
+### Windows (PowerShell)
 ```powershell
 irm https://raw.githubusercontent.com/cmduyeen/git-tieng-viet/main/install.ps1 | iex
 ```
 
 ### macOS / Linux
-
 ```bash
 curl -fsSL https://raw.githubusercontent.com/cmduyeen/git-tieng-viet/main/install.sh | sh
 ```
 
-## Bắt đầu một dự án mới
-
+### Hoặc cài từ mã nguồn
 ```powershell
-mkdir du-an-moi
-cd du-an-moi
-vgit batdau
+git clone https://github.com/cmduyeen/git-tieng-viet.git
+cd git-tieng-viet
+python -m pip install -e .
+vgit --version
 ```
-
-Quy trình lưu thay đổi thường dùng:
-
-```powershell
-vgit trangthai
-vgit luu "Bổ sung trang chủ"
-vgit lichsu
-```
-
-## Kết nối GitHub
-
-```powershell
-vgit ketnoi https://github.com/ten-tai-khoan/ten-du-an.git
-vgit day
-```
-
-Lần đầu đẩy nhánh, vgit sẽ tự thử liên kết nhánh hiện tại với `origin`.
-
-## Ví dụ luồng làm việc hàng ngày
-
-```powershell
-vgit keo
-vgit trangthai
-vgit them index.html
-vgit thaydoi da-chon
-vgit luu "Cập nhật trang chủ"
-vgit day
-```
-
-## Bảng lệnh
-
-| Lệnh | Việc thực hiện | Git tương ứng |
-| :--- | :--- | :--- |
-| `vgit batdau` | Khởi tạo dự án Git mới | `git init -b main` |
-| `vgit tai <đường-dẫn>` | Tải một dự án về máy | `git clone <đường-dẫn>` |
-| `vgit trangthai` | Xem file mới, đã sửa hoặc đã xóa | `git status --porcelain=v1` |
-| `vgit them [file]` | Thêm file vào danh sách chuẩn bị lưu | `git add` |
-| `vgit bothem [file]` | Bỏ file khỏi danh sách chuẩn bị lưu | `git restore --staged` |
-| `vgit thaydoi [da-chon]` | Xem tóm tắt phần đã hoặc chưa thay đổi | `git diff` / `git diff --cached` |
-| `vgit luu "mô tả"` | Lưu tất cả thay đổi vào lịch sử Git | `git add . && git commit -m "..."` |
-| `vgit lichsu [số-lượng]` | Xem các lần lưu gần nhất | `git log -n <số-lượng>` |
-| `vgit nhanh [tên]` | Xem, tạo hoặc chuyển nhánh | `git branch` / `git checkout -b` |
-| `vgit ketnoi <đường-dẫn>` | Gắn hoặc cập nhật remote `origin` | `git remote add/set-url origin` |
-| `vgit keo` | Tải thay đổi mới nhất về máy | `git pull` |
-| `vgit day` | Đẩy thay đổi lên máy chủ | `git push` |
-| `vgit dongbo` | Kéo code mới rồi đẩy code hiện tại | `git pull && git push` |
-| `vgit quaylai [file]` | Hủy thay đổi chưa lưu, có xác nhận | `git restore` |
-| `vgit vat luu [ghi-chú]` | Tạm cất thay đổi để làm việc khác | `git stash push --include-untracked` |
-| `vgit vat lay` | Lấy lại thay đổi tạm gần nhất | `git stash pop` |
-| `vgit vat xem` | Xem danh sách thay đổi đã tạm cất | `git stash list` |
-| `vgit caidat` | Xem các tùy chọn cấu hình | — |
-| `vgit huongdan` | Hiển thị hướng dẫn nhanh | — |
-| `vgit --version` | Xem phiên bản vgit | — |
-
-Ngoài các lệnh tiếng Việt, vgit cũng cho phép chuyển tiếp lệnh Git gốc. Ví dụ:
-
-```powershell
-vgit diff
-vgit stash list
-vgit remote -v
-```
-
-## Cấu hình
-
-### Bật hoặc tắt chế độ Cầu nối
-
-Chế độ Cầu nối hiển thị lệnh Git gốc sau mỗi thao tác:
-
-```powershell
-vgit caidat bridge bat
-vgit caidat bridge tat
-```
-
-### Cấu hình tên và email
-
-```powershell
-vgit caidat tacgia
-```
-
-Các thông tin này được lưu vào cấu hình Git toàn cục của máy.
-
-## Xử lý lỗi thường gặp
-
-- **Chưa khởi tạo Git**: chạy `vgit batdau`.
-- **Chưa kết nối máy chủ**: chạy `vgit ketnoi <đường-dẫn-repo>`.
-- **Chưa cấu hình tên/email**: chạy `vgit caidat tacgia`.
-- **Code trên máy chủ mới hơn máy local**: chạy `vgit keo`, giải quyết xung đột nếu có, rồi chạy `vgit day`.
-- **Không đăng nhập được**: kiểm tra quyền truy cập repo và Personal Access Token nếu dùng GitHub.
-
-## Chạy kiểm thử
-
-```powershell
-cd D:\Brain2nd\06-Code\vgit
-python -m unittest discover -s tests -v
-```
-
-## Bộ công cụ lập trình tiếng Việt
-
-| Công cụ | Mô tả | Link |
-| :--- | :--- | :--- |
-| **vpy** | Python tiếng Việt (`.vpy`) & trình soạn thảo `vide` | [cmduyeen/python-tieng-viet](https://github.com/cmduyeen/python-tieng-viet) |
-| **vgit** *(đang xem)* | Git tiếng Việt cho người mới học | [cmduyeen/git-tieng-viet](https://github.com/cmduyeen/git-tieng-viet) |
-| **vgh** | GitHub CLI (`gh`) tiếng Việt | [cmduyeen/github-tieng-viet](https://github.com/cmduyeen/github-tieng-viet) |
-| **vwt** | Windows Terminal / PowerShell tiếng Việt | [cmduyeen/terminal-tieng-viet](https://github.com/cmduyeen/terminal-tieng-viet) |
 
 ---
 
-Phát triển bởi [cmduyeen](https://github.com/cmduyeen) · ☕ [Mời mình 1 ly cà phê (Ko-fi)](https://ko-fi.com/cmduyeen)
+## 🚀 Thực hành quy trình 1 phút
+
+```powershell
+# 1. Tạo dự án mới
+mkdir du-an-cua-toi
+cd du-an-cua-toi
+vgit batdau
+
+# 2. Kiểm tra & lưu thay đổi
+vgit trangthai
+vgit luu "Tạo trang chủ đầu tiên"
+
+# 3. Kết nối GitHub và đẩy code lên
+vgit ketnoi https://github.com/ten-cua-ban/du-an-cua-toi.git
+vgit day
+```
+
+---
+
+## 📖 Bảng lệnh `vgit`
+
+| Lệnh `vgit` | Việc thực hiện | Lệnh Git gốc tương ứng |
+| :--- | :--- | :--- |
+| `vgit batdau` | Khởi tạo dự án Git mới | `git init -b main` |
+| `vgit tai <url>` | Tải dự án từ GitHub về máy | `git clone <url>` |
+| `vgit trangthai` | Xem file mới, đã sửa hoặc đã xóa | `git status --porcelain=v1` |
+| `vgit them [file]` | Chọn file chuẩn bị lưu | `git add` |
+| `vgit bothem [file]` | Bỏ chọn file | `git restore --staged` |
+| `vgit thaydoi [da-chon]` | Xem chi tiết những gì đã sửa | `git diff` / `git diff --cached` |
+| `vgit luu "mô tả"` | Lưu tất cả thay đổi vào lịch sử | `git add . && git commit -m "..."` |
+| `vgit lichsu [số-lượng]` | Xem các lần lưu gần nhất | `git log -n <số-lượng>` |
+| `vgit nhanh [tên]` | Xem, tạo hoặc chuyển nhánh | `git branch` / `git checkout -b` |
+| `vgit ketnoi <url>` | Gắn hoặc đổi đường dẫn GitHub `origin` | `git remote add/set-url origin` |
+| `vgit keo` | Tải code mới nhất từ GitHub về | `git pull` |
+| `vgit day` | Đẩy code từ máy lên GitHub | `git push` |
+| `vgit dongbo` | Kéo code mới rồi đẩy code lên | `git pull && git push` |
+| `vgit quaylai [file]` | Hủy thay đổi chưa lưu (có hỏi xác nhận) | `git restore` |
+| `vgit vat luu [ghi-chú]` | Cất tạm code đang làm dở | `git stash push --include-untracked` |
+| `vgit vat lay` | Lấy lại phần code đã cất tạm | `git stash pop` |
+| `vgit vat xem` | Xem danh sách đã cất tạm | `git stash list` |
+| `vgit caidat bridge bat\|tat` | Bật/tắt chế độ hiển thị lệnh Git gốc | — |
+| `vgit caidat tacgia` | Cài tên và email cho Git | `git config --global user.*` |
+| `vgit huongdan` | Xem bảng hướng dẫn nhanh | — |
+
+*(Bạn cũng có thể gõ bất kỳ lệnh Git gốc nào qua `vgit`, ví dụ `vgit diff`, `vgit remote -v`.)*
+
+---
+
+## 🧰 Bộ công cụ lập trình tiếng Việt
+
+| Công cụ | Mô tả | Link |
+| :--- | :--- | :--- |
+| **python-tieng-viet** | Python tiếng Việt (`vpy`) & trình soạn thảo `vide` | [cmduyeen/python-tieng-viet](https://github.com/cmduyeen/python-tieng-viet) |
+| **git-tieng-viet** *(đang xem)* | Git tiếng Việt (`vgit`) cho người mới học | [cmduyeen/git-tieng-viet](https://github.com/cmduyeen/git-tieng-viet) |
+| **github-tieng-viet** | GitHub CLI tiếng Việt (`vgh`) | [cmduyeen/github-tieng-viet](https://github.com/cmduyeen/github-tieng-viet) |
+| **terminal-tieng-viet** | Windows Terminal / PowerShell tiếng Việt (`vwt`) | [cmduyeen/terminal-tieng-viet](https://github.com/cmduyeen/terminal-tieng-viet) |
+
+---
+
+[MIT License](LICENSE) · Phát triển bởi [cmduyeen](https://github.com/cmduyeen) · ☕ [Mời mình 1 ly cà phê (Ko-fi)](https://ko-fi.com/cmduyeen)
